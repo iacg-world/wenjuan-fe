@@ -4,6 +4,7 @@ import produce from 'immer'
 export type PageInfoType = {
   title: string
   desc?: string
+  background?: string
   js?: string
   css?: string
   isPublished?: boolean
@@ -12,6 +13,7 @@ export type PageInfoType = {
 const INIT_STATE: PageInfoType = {
   title: '',
   desc: '',
+  background: '',
   js: '',
   css: '',
 }
@@ -28,9 +30,13 @@ const pageInfoSlice = createSlice({
     changePageTitle: produce((draft: PageInfoType, action: PayloadAction<string>) => {
       draft.title = action.payload
     }),
+    // 修改标题
+    changePageBackground: produce((draft: PageInfoType, action: PayloadAction<string>) => {
+      draft.background = action.payload
+    }),
   },
 })
 
-export const { resetPageInfo, changePageTitle } = pageInfoSlice.actions
+export const { resetPageInfo, changePageTitle, changePageBackground } = pageInfoSlice.actions
 
 export default pageInfoSlice.reducer

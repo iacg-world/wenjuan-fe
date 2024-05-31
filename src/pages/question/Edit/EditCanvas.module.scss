@@ -1,7 +1,8 @@
 .canvas {
     min-height: 100%;
-    background-color: #fff;
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 
 .component-wrapper {

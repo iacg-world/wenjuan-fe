@@ -22,7 +22,7 @@ const Edit: FC = () => {
   }
 
   // 修改标题
-  const { title } = useGetPageInfo()
+  const { title, background } = useGetPageInfo()
   useTitle(`问卷编辑 - ${title}`)
 
   return (
@@ -34,7 +34,12 @@ const Edit: FC = () => {
             <LeftPanel />
           </div>
           <div className={styles.main} onClick={clearSelectedId}>
-            <div className={styles['canvas-wrapper']}>
+            <div
+              className={styles['canvas-wrapper']}
+              style={{
+                backgroundImage: `url(${background})`,
+              }}
+            >
               <EditCanvas loading={loading} />
             </div>
           </div>
